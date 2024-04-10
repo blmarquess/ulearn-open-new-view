@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "ULearn do jeito certo",
+  "version": "1.0",
+  "author": "Bruno Marques <blmarques.dev@gmail.com>",
+  "description": "Extension to open ULearn in a new tab",
+  "permissions": ["activeTab"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "src/icon.png",
+      "48": "src/icon.png",
+      "128": "src/icon.png"
+    }
+  },
+  "icons": {
+    "16": "src/icon.png",
+    "48": "src/icon.png",
+    "128": "src/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.kubolms.com.br/*"],
+      "js": ["src/content.js"],
+      "css": ["src/content.css"]
+    }
+  ]
+}
